@@ -58,6 +58,11 @@ const loginAuthor = async function (req, res) {
         if (!email) {
             return res.status(400).send({ Status: false, msg: " please enter email" })
         }
+        
+        if (!validator.isEmail(req.body.email)) {
+          return res.status(400).send({ status: false, msg: "your email id is not in proper format " })
+        }
+        
         if (!password) {
             return res.status(400).semd({ status: false, msg: "please enter password" })
         }

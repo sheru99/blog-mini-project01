@@ -64,7 +64,7 @@ const loginAuthor = async function (req, res) {
         }
         
         if (!password) {
-            return res.status(400).semd({ status: false, msg: "please enter password" })
+            return res.status(400).send({ status: false, msg: "please enter password" })
         }
         let user = await authorModel.findOne({ email: email, password: password });
         if (!user) {
